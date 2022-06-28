@@ -1,0 +1,11 @@
+[Unit]
+Description=mqttr
+
+[Service]
+Type=simple
+User=YOUR_USER
+ExecStart=/usr/local/bin/mqttr/mqtt-receiver
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

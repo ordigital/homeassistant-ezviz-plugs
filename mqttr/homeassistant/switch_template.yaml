@@ -1,0 +1,30 @@
+- platform: template
+  switches:
+    plug1:
+      friendly_name: "First Plug"
+      unique_id: "Q12345678"
+      value_template: '{{ is_state("sensor.Q12345678", "1") }}'
+      turn_on:
+        service: mqtt.publish
+        data:
+          topic: "home/mqttr/control"
+          payload: "{\"serve\": \"ezviz-plug\", \"deviceSerial\": \"Q12345678\", \"enable\": 1}"
+      turn_off:
+        service: mqtt.publish
+        data:
+          topic: "home/mqttr/control"
+          payload: "{\"serve\": \"ezviz-plug\", \"deviceSerial\": \"Q12345678\", \"enable\": 0}"
+    plug2:
+          friendly_name: "Second Plug"
+          unique_id: "Q87654321"
+          value_template: '{{ is_state("sensor.Q87654321","1") }}'
+          turn_on:
+            service: mqtt.publish
+            data:
+              topic: "home/mqttr/control"
+              payload: "{\"serve\": \"ezviz-plug\", \"deviceSerial\": \"Q87654321\", \"enable\": 1}"
+          turn_off:
+            service: mqtt.publish
+            data:
+              topic: "home/mqttr/control"
+              payload: "{\"serve\": \"ezviz-plug\", \"deviceSerial\": \"Q87654321\", \"enable\": 0}"

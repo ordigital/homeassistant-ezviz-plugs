@@ -1,0 +1,13 @@
+#!/bin/bash
+. /usr/local/bin/mqttr/mqttr.conf
+
+while true
+do
+    mosquitto_sub -h localhost -u ${user} -P ${password} -t ${topic} | while read -r payload
+    do
+	echo ${payload}
+	cd /usr/local/bin/mqttr
+	./mqttr.py "${payload}"
+    done
+    sleep 10
+done

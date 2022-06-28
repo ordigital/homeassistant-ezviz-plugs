@@ -1,0 +1,3 @@
+#!/bin/bash
+. /usr/local/bin/mqttr/mqttr.conf
+/usr/bin/mosquitto_pub -h localhost -u ${user} -P ${password} -t $1 -m "$2"

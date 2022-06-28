@@ -1,0 +1,8 @@
+mqtt:
+ sensor:
+    - name: "Q12345678"
+      state_topic: "home/plug/Q12345678"
+      value_template: "{{ value_json.enable }}"
+    - name: "Q87654321"
+      state_topic: "home/plug/Q87654321"
+      value_template: "{{ value_json.enable }}"
