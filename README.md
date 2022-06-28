@@ -15,7 +15,7 @@ Linux server with Python 3.10+, Mosquitto server, pyEzviz, Home Assistant, MQTT 
 2. Edit `mqttr.conf` and provide your mosquitto server user and password.
 3. Edit and copy template switch and mqtt sensor definitions from `homeassistant/*.yaml`to HA configuration
 4. Edit `inc/ezviz_config.py` and change your Ezviz account user, password and plugs device serial number list.
-5. Use `mqttr-receiver` as systemd service to receive mqtt messages from HA
+5. Use `mqttr-receiver` as systemd service to receive mqtt messages from HA. Service file is in `systemd/mqttr.service` and should be copied to '/lib/systemd/system`. Remeber to reload systemd, enable service and start it.
 6. Use cron to execute `inc/ezviz-plug.py` to check plugs status.
 
 Look into files and directories and you'll figure it out. ;)
