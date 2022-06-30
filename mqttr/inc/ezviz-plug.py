@@ -39,7 +39,7 @@ def check():
 # Update state of plug
 def send(serial,state):
     topic = "home/plug/" + serial
-    cmd = "/usr/local/bin/mqtt " + topic + " {\"enable\":" + str(state) + "}"
+    cmd = "/usr/local/bin/mqtt " + topic + " {\"enable\":" + str(int(state)) + "}"
     process = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
 
